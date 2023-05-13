@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/569d35a1f0.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .header{
+            width: 100%;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            background-color: rgb(38, 47, 117);
+            position: sticky;
+        }
+        .header p{
+            margin: 12px 50px;
+            color: white;
+        }
+        .header ul i{
+            margin: 0px 10px;
+            color:rgb(255, 255, 255)
+        }
+
+        .navbar{
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            /* margin: 0px 10px; */
+            position: sticky;
+            border-bottom: 7px solid rgb(38, 47, 117);
+        }
+        #logo{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin-left: 50px;
+        }
+        #logo h2{
+            font-size: 25px;
+        }
+        #logo a{
+            width: 80px;
+        }
+        #navig{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+        }
+
+        .menu-btn {
+            background: transparent;
+            color: rgb(0, 0, 0);
+            padding: 10px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            }
+        .dropdown-menu {
+            position: relative;
+            display: inline-block;
+            }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background-color: rgb(38, 47, 117);
+            min-width: 200px;
+            z-index: 1;
+            }
+
+        
+        .links-hidden{
+            display: block;
+            padding: 18px 5px;
+            border-bottom: 1px solid yellow;
+            text-decoration: none;
+            font-size: 17px;
+            color: rgb(240, 238, 238);
+            align-items: center;
+        }
+        .links-hidden i{
+            padding: 2px 0px;
+        }
+        .links-hidden:hover{
+            background-color: rgb(214, 233, 250);
+            color: black;
+            }
+        .dropdown-menu:hover .menu-content {
+            display: block;
+            transition: 0.5s ease;
+            }
+        .dropdown-menu:hover .menu-btn {
+            color: rgb(38, 47, 117);
+            }
+
+        .college-photo{
+            background-image: url(img/pexels-idriss-meliani-2982449.jpg);
+            height: 65vh;
+            width: 100%;
+            background-size: cover;
+            background-position: top 55% right 0%;
+            display:flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .college-photo h1{
+            color: rgb(231, 201, 32);
+            font-size: 40px;
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            text-shadow: 2px 2px 3px rgb(4, 29, 104);
+        }
+        .college-photo h1 span{
+            color: white;
+        }
+        .banner{
+            align-items: center;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 100%;
+            height: 30px;
+            background-color: rgb(38, 47, 117);
+        }
+        .banner div{
+            padding-left:50px ;
+            padding-right: 50px;
+            padding-top: 5px;
+        }
+        .banner ul{
+            list-style: none;
+            display: flex;
+        }
+        .banner ul li a{
+            color: yellow;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .main-body{
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            margin: 50px 100px;
+        }
+        .main-column-1{
+            padding:5px;
+            margin: 5px 10px;
+            width: 140%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+        .main-column-2{
+            padding:5px;
+            margin: 5px 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        } 
+        
+        .header-welcome{
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:flex-start;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgb(230, 243, 255);
+            box-shadow: 2px 2px 10px rgba(109, 109, 109, 0.418);
+        }
+        .header-welcome h3{
+            font-size: 20px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-weight: 150;
+        }
+        .header-welcome h1{
+            font-size: 30px;
+            padding-bottom:10px;
+            font-weight:bolder;
+
+        }
+        .header-welcome p{
+            font-size: 16px;
+
+        }
+        .notice-board{
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items:flex-start;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgb(230, 243, 255);
+        }
+        .notice-board-2{
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items:flex-start;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgb(230, 255, 241);
+        }
+        .notice-board-2 .header-notice{
+            width: 100%;
+            border-bottom: 3px solid rgb(0, 66, 33);
+            border-top: 3px solid rgb(0, 66, 33);
+        } 
+        .notice-board-2 h3{
+            font-size: 22px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            font-weight: 200;
+            color: rgb(10, 85, 47);
+        }
+        .notice-board-2 .notice-box-2{
+            padding: 8px;
+            margin-left: 2px;
+            margin-right: 2px;
+            background-color: rgb(172, 242, 201);
+        }
+        .notice-board-2 .notice-box-2 a{
+            font-size: 16px;
+            text-decoration: none;
+            color: rgb(3, 42, 4);
+        }
+        .notice-board-2 .date{
+            display: flex;
+            padding-left: 8px;
+            margin-left: 2px;
+            margin-right: 2px;
+            margin-bottom: 4px;
+            background-color: rgb(0, 113, 34);
+        }
+        .notice-board-2 .date b{
+            font-size: 14px;
+            color: rgb(186, 254, 212);
+        }
+
+        .header-notice{
+            width: 100%;
+            border-bottom: 3px solid rgb(38, 47, 117);
+            border-top: 3px solid rgb(38, 47, 117);
+        }
+        .notice-board h3{
+            font-size: 22px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            font-weight: 150;
+            color: rgb(38, 47, 117);
+        }
+    
+        .notice-box{
+            padding: 8px;
+            margin: 2px;
+            background-color: rgb(194, 224, 250);
+        }
+
+        .notice-box a{
+            font-size: 16px;
+            text-decoration: none;
+            color: rgb(7, 0, 101);
+        }
+
+        .main-row-1{
+            padding:10px;
+            margin: 50px 131px;
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
+        }
+        .sub-body{
+            display: flex;
+        }
+        .quickmenu{
+            margin-top: 30px;
+            margin-left: 8px;
+            background-color: rgb(21, 30, 98);
+            width: 270px;
+        }
+        .quickmenu-header{
+            display: flex;
+            height: 35px;
+            padding: 10px;
+            align-items: center;
+            border-bottom: 1px solid rgb(208, 184, 0);
+            border-top: 7px solid rgb(241, 213, 0);
+        }
+        .quickmenu-header h3{
+            color: white;
+            font-size: 27px;
+        }
+        .menu-box{
+            display:flex;
+            flex-direction: column;
+            width: 270px;
+            /* margin-left: 5px; */
+        }
+        .quick-links{
+            padding: 14px 10px;
+            border-bottom: 1px solid rgb(168, 168, 55);
+            text-decoration: none;
+            font-size: 17px;
+            color: rgb(240, 238, 238);
+            align-items: center;
+        }
+        .quick-links i{
+            font-size: 12px;
+            opacity: 0.4;
+        }
+        .quick-links:hover{
+            cursor: pointer;
+            color: rgb(247, 220, 15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>E-mail: acb@gmail.com</p>
+            <ul>
+                <i class="fa fa-facebook-square" aria-placeholder="mail"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter-square"></i>
+                <i class="fa fa-youtube-play"></i>
+            </ul>
+        </div>
+
+        <div class="navbar">
+            <div id="logo">
+                <a href="#"><img src="img/abc-logo-image-4412.png" alt="#" width="88" height="65"></a>
+
+                <h2>ABC INSTITUTE OF TECHNOLOGY</h2>
+            </div>
+            
+            <div>
+                <ul id="navig">
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">About us <i class="fa fa-chevron-circle-down"></i> </button>
+                        <div class="menu-content">
+                        <a class="links-hidden" href="#">Institute Information <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Mission and Vission <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Approvals <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">Department <i class="fa fa-chevron-circle-down"></i> </button>
+                        <div class="menu-content">
+                        <a class="links-hidden" href="#">School of Engineering <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">School of Applied Science & Humanitics <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">School of Chemical,Food & Biotechnology <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">School of Management & Social Science <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">Faculty <i class="fa fa-chevron-circle-down"></i> </button>
+                        <div class="menu-content">
+                        <a class="links-hidden" href="#">Members of the Board of Governors <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">From the Desk of Chairman <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">From the Desk of Principal <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Administrative Body <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Academic Council <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Board of Studies <i class="fa fa-caret-right"></i></a>
+                        <a class="links-hidden" href="#">Mandatory Disclosure 2022-2023 <i class="fa fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">Research <i class="fa fa-chevron-circle-down"></i> </button>
+                        <div class="menu-content">
+                        <a class="links-hidden" href="#">Research Ethics</a>
+                        <a class="links-hidden" href="#">Research Ethics Commitee</a>
+                        <a class="links-hidden" href="#">Research Resolution</a>
+                        <a class="links-hidden" href="#">Project Sanctioned</a>
+                        <a class="links-hidden" href="#">Book Chapter Published 2021-2022</a>
+                        <a class="links-hidden" href="#">Ph.D Awarded during the Year 2021-2022</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">Placement </button>
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="menu-btn">Contact us </button>
+                    </div>
+                </ul>
+            </div>
+            
+        </div>
+
+        <section class="college-photo">
+            <h1>#Excellent Placement Records</h1>
+            <h1><span>85% +</span> Placements Offered</h1>
+            <h1><span>100 +</span> Recruiters</h1>
+            <h1><span>100 +</span> Campus Drives</h1>   
+        </section>
+
+        <div class="banner">
+            <div>
+                <marquee  behavior="scroll" direction="left" scrollamount="8" scrolldelay="1" style="height:100px" loop="ture">
+                    <ul>
+                        <li>
+                            <a href="#"> <b>January 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio excepturi aut culpa incidunt eligendi ab fugiat asperiores.</a>
+                        </li>
+                        <li>
+                            <a href="#"> <b>January 15, 2023:</b> <img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li>
+                        <li>
+                            <a href="#"> <b>February 10, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li>
+                        
+                    </ul>
+                </marquee>
+            </div>
+        </div>
+
+    <section class="main-body">
+        <section class="main-column-1">
+            <div class="header-welcome">
+                <h3>WELCOME TO</h3>
+                <h1>ABC INSTITUTE OF TECHNOLOGY</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque unde necessitatibus sint velit! Quidem ipsa sed sunt, sequi et ex modi provident exercitationem quibusdam natus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a, ratione veniam quos maiores sunt magni, facilis ipsum, dolore est neque officia vitae voluptates ex perferendis iure iusto veritatis voluptatibus Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat saepe corporis temporibus voluptas, itaque dolores, vel a nisi deleniti magnam quam, aspernatur laboriosam fugiat non explicabo laborum ut. Nam, officiis? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam, labore exercitationem. Illum quia saepe enim quos eos quae aliquid delectus deleniti autem! Modi deserunt, nihil ducimus perspiciatis animi voluptatibus laborum id velit tempore? Ipsa est officiis, vero incidunt numquam temporibus esse architecto natus, dolores placeat, molestiae quod explicabo labore modi perspiciatis expedita cupiditate atque quas? Voluptate aliquam exercitationem cum accusantium aut perferendis rerum eaque ad dignissimos pariatur, doloribus ut nulla laboriosam molestias fugit dicta natus numquam doloremque? Harum consequatur esse velit veniam. Exercitationem quas ipsum eligendi laudantium ipsam, minus architecto tenetur doloribus. Praesentium dolorum dolor nam fugiat distinctio atque provident. </p>
+            </div>
+
+            <div class="sub-body">
+                <div class="quickmenu">
+                    <div class="quickmenu-header">
+                        <h3>Quick Menu</h3>
+                    </div>
+                    <div class="menu-box">
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Information Brochure</a>
+                            
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Alumni</a>
+                                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Admission Procedure-B.Tech, M.Tech, & MCA,MBA</a>
+                                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Anti-Ragging Warning</a>
+                            
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Fee Structure</a>
+                              
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> University Affiliation</a>
+                                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Details of Research Papers</a>
+                                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Press & Media</a>
+                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Jobs</a>
+                                
+                        <a class="quick-links" href=""><i class="fa fa-angle-right"></i> Right to Information</a>
+                        
+                    </div>
+                </div>
+
+                <div class="gallery">
+                    <div>
+                        <h3>GALLERY</h3>
+                    </div>
+                </div>
+            </div>
+            
+        </section> 
+
+        <section class="main-column-2">
+        
+            <div class="notice-board">
+                <div class="header-notice"><h3>Notice Board</h3></div>
+                <div>
+                    <marquee behavior="scroll" direction="up" scrollamount="5" style="height:310px">
+                    <ul>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>January 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio excepturi aut culpa incidunt eligendi ab fugiat asperiores.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>January 15, 2023:</b> <img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>February 10, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>February 14, 2023:</b>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 8, 2023:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 18, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 25, 2023:</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 2, 2023:</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 5, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>     
+                    </ul>
+                    </marquee>
+                </div>
+            </div>
+
+            <div class="notice-board">
+                <div class="header-notice"><h3>Announcement</h3></div>
+                <div>
+                    <marquee behavior="scroll" direction="up" scrollamount="5" scrolldelay="0" loop="true" style="height:310px">
+                    <ul>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>January 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio excepturi aut culpa incidunt eligendi ab fugiat asperiores.</a></li>
+                        </div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>January 15, 2023:</b> <img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>February 10, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>February 14, 2023:</b>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 8, 2023:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 18, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>April 25, 2023:</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 1, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 2, 2023:</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>
+                        <div class="notice-box"><li>
+                            <a href="#"> <b>May 5, 2023:</b><img src="img/new2_e0.gif" alt=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.</a>
+                        </li></div>     
+                    </ul>
+                    </marquee>
+                </div>
+            </div>
+
+            <div class="notice-board-2">
+                <div class="header-notice"><h3>Events</h3></div>
+                <div>
+                    <marquee behavior="scroll" direction="up" scrollamount="3" style="height:310px">
+                    <ul>
+                        <div>
+                            <div class="notice-box-2">
+                                <li>
+                                    <a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio excepturi aut culpa incidunt eligendi ab fugiat asperiores.
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="date"><b>Published on: January 1, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2">
+                                <li>
+                                    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="date"><b>Published on: January 15, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2">
+                                <li>
+                                    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam.
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="date"><b>Published on: February 10, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2">
+                                <li>
+                                    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                                </li>
+                            </div>
+                            <div class="date"><b>Published on: February 14, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: April 1, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: April 8, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: April 18, 2023</b></div>
+                        </div>
+
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#"></a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: April 25, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: May 1, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: May 2, 2023</b></div>
+                        </div>
+                        
+                        <div>
+                            <div class="notice-box-2"><li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quibusdam temporibus autem, quia a numquam. </a>
+                            </li></div>
+                            <div class="date"><b>Published on: May 5, 2023</b></div>
+                        </div>
+                             
+                    </ul>
+                    </marquee>
+                </div>
+            </div>
+        </section>
+    </section>
+        
+    </div>
+</body>
+</html>
